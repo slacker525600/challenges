@@ -1,0 +1,46 @@
+(define (fact-it a b)
+ (begin 
+  (write b)
+  (write " ")
+  (cond 
+    ( (= a 1) b) 
+    ( (> a 1) (fact-it (- a 1) (* b a)))
+  )
+ )
+)
+(define (fact a)
+ (begin
+  (cond 
+   ( (= a 1) 1 )
+   ( (> a 1) (fact-it  (* (- a 1) ) ))
+  )
+ )
+)
+
+(define (count-dig n)
+ (cond
+  ((> n 0) (+ (modulo n 10) (count-dig (/ (- n (modulo n 10)) 10))))
+  (else 0)  
+ )
+)
+
+(define (forward-fact a)
+ (define (int-forward-fact nOn nTo nValAt)
+  (begin
+   (display nOn)
+   (display ":")
+   (display (count-dig nValAt))
+   (display "\n")
+   (cond 
+    ( (> nOn nTo) nValAt)
+    ( else (int-forward-fact (+ nOn 1) nTo (* nOn nValAt)) )
+   )
+  )
+ )
+ (int-forward-fact 2 a 1)
+)
+
+;; if I remember correctly this is comments
+;; also, cons constructs list
+;; car first cdr rest
+;; write output
