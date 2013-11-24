@@ -18,6 +18,8 @@ def pfp(n):
     return anPrimeFactors
 
 def is_prime(n):
+  if n < 1 or math.floor(n) != n:
+    raise ValueError
   bToReturn = True
   if n%2 ==0 and n != 2:
     bToReturn = False
