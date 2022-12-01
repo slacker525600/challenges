@@ -1,0 +1,10 @@
+Working through advent of code 2022 challenges in this folder, might rename the repo because of it... 
+
+creating dockerfile just to simplify dependency management locally, and because why not. 
+currently just running and putting it into the box on the page, 
+
+docker build . -t aoc2022:latest
+
+docker run aoc2022
+
+may end up making above more involved with day to run ... but fine for now. 
