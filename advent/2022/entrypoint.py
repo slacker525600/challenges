@@ -1,4 +1,5 @@
 # just opening a file for starting...
+import io
 
 def run():
   print("Hello world!")
@@ -45,6 +46,10 @@ def oneGeneric():
   generic('day1input.txt', stateObject, lineLambda, summaryLambda )
 
 def generic(inputFile, defaultState, lineLambda, summaryLambda):
+  """ read input, 
+      track state, 
+      perform actions with lines of input (update state)
+  """
   state = defaultState.copy()
   s = inputFile.readline()
   while s:
@@ -92,7 +97,7 @@ def two():
     rpsMe = offsets[(offsets.index(rpsOp)+resultOffset) %3]
 
     lineScore += matchScoreDict[rpsOp][rpsMe]
-    if lineScore != resultOffset*3 + 3:
+    if matchScoreDict[rpsOp][rpsMe] != resultOffset*3 + 3:
       print('Bug?')
 
     lineScore += throwScoreDict[rpsMe]
@@ -106,15 +111,23 @@ def two():
     print(state['score'])
     return state['score']
 
+  test = io.StringIO('''A Y
+B X
+C Z''')
+
+  assert generic(test,defaultState, partOnelineLambda, summaryLambda) == 15
+
   with open('day2input.txt','r') as f:
     generic(f, defaultState, partOnelineLambda, summaryLambda )
 
+  test = io.StringIO('''A Y
+B X
+C Z''')
+
+  assert generic(test,defaultState, partTwolineLambda, summaryLambda) == 12
+
   with open('day2input.txt','r') as f:
     generic(f, defaultState, partTwolineLambda, summaryLambda )
-
-
-# read input, track state, perform actions with line (update state)
-
 
 
 if __name__ == "__main__":
