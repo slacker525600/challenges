@@ -23,7 +23,6 @@ class GenericProc():
   testSolution = ''
 
   def __init__(self, inputFileName, defaultState, lineLambda, summaryLambda, testString, testSolution):
-    print('initializing')
     self.inputFileName = inputFileName
     self.defaultState = defaultState
     self.lineLambda = lineLambda
@@ -34,12 +33,10 @@ class GenericProc():
   def test(self):
     state = copy.deepcopy(self.defaultState)
     assert generic(io.StringIO(self.testString), state, self.lineLambda, self.summaryLambda) == self.testSolution
-    print('after test', self.defaultState)
 
 
   def run(self):
     with open(self.inputFileName,'r') as f:
-      print(self.defaultState)
       state = copy.deepcopy(self.defaultState)
       s = f.readline()
       while s:
