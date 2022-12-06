@@ -10,15 +10,14 @@ state = {
 def lineProc(state, line):
   if (state['mode'] == 'prep'):
     # load up stacks
-    if len(line):
-      state['queuedStacks'].append(line)
-    else: 
+    state['queuedStacks'].append(line)
+    if not len(line):
       # create stacks from lines
       # create a list/stack for each column
-      state['stacks'] = [ [] for x in state['queuedStacks'][-1].split() ]
-      state['partTwoStacks'] = [ [] for x in state['queuedStacks'][-1].split() ]
+      state['stacks'] = [ [] for x in state['queuedStacks'][-2].split() ]
+      state['partTwoStacks'] = [ [] for x in state['queuedStacks'][-2].split() ]
 
-      stacks = state['queuedStacks'][:-1]
+      stacks = state['queuedStacks'][:-2]
       stacks.reverse()
       for row in stacks:
         # for each item here push into list with index blah 
@@ -30,6 +29,8 @@ def lineProc(state, line):
             state['stacks'][i].append(row[i*4+2])
             state['partTwoStacks'][i].append(row[i*4+2])
           i += 1
+
+      state['queuedStacks'] = []
       state['mode'] = 'moving',
   else: 
     move = line.split()
