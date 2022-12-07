@@ -5,7 +5,7 @@ import io
 # from days.three import three
 # from days.four import four
 # from days.five import five
-from days.six import six
+from days.seven import seven
 
 def run():
   print("Hello world!")
