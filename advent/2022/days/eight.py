@@ -6,7 +6,6 @@ testInput = '''30373
 33549
 35390'''
 
-
 state = {
   'grid': []
 }
@@ -33,41 +32,35 @@ def partOneSummary(state):
   visibilityMatrix = []
   # print(state['grid'])
   for row in state['grid']:
-    # print(row, lineVisibility(row))
+    #initialize vis matrix from left to right visibility
     visibilityMatrix.append(lineVisibility(row))
-    #print(visibilityMatrix)
 
     backwards = row.copy()
     backwards.reverse()
     backBools = lineVisibility(backwards)
     backBools.reverse()
-    #print(backBools)
+    # then do right to left
     for i in range(0, len(backBools)):
-      # print(i, visibilityMatrix[-1][i] or backBools[i], visibilityMatrix[-1][i], backBools[i])
       visibilityMatrix[-1][i] = visibilityMatrix[-1][i] or backBools[i]
-    #print(visibilityMatrix)
-  # still need to process columns 
-  #print(visibilityMatrix)
 
+  # to keep directional logic by list instead of using grid itself rebuild as columns
   columns = [list(i) for i in zip(*state['grid'])]
-  # print(columns)
 
   for col in range(0, len(columns)):
+
+    # top down 
     visibilityCol = lineVisibility(columns[col])
-    # print(columns[col], visibilityCol)
     for j in range(0, len(visibilityCol)):
       visibilityMatrix[j][col] = visibilityMatrix[j][col] or visibilityCol[j]
 
-    # print(visibilityMatrix)
+    # and down to up
     columns[col].reverse()
     reverseVisibilityCol = lineVisibility(columns[col])
     for j in range(0, len(reverseVisibilityCol)):
       visibilityMatrix[len(visibilityMatrix)-1-j][col] = visibilityMatrix[len(visibilityMatrix)-1-j][col] or reverseVisibilityCol[j]
-
-    # print(visibilityMatrix)
   
   total = sum([sum(x) for x in visibilityMatrix])
-  #print(total)
+
   return total
 
 def score(val, view):
@@ -76,6 +69,7 @@ def score(val, view):
     toReturn += 1
   #include the tree you stopped on... 
   return toReturn +  (1 if toReturn < len(view) else 0)
+
 def locScore(grid, columns, i, j):
   val = grid[i][j]
   left = grid[i][0:j]
@@ -84,11 +78,8 @@ def locScore(grid, columns, i, j):
   up = columns[j][0:i]
   up.reverse()
   down = columns[j][i+1:]
-  #print(grid, i, j, left, right, up, down)
-  theScore = score(val, left) * score(val, up) * score(val, right)* score(val, down)
-  #print(score(val, left), score(val, up), score(val, right), score(val, down))
-  print(i,j, val, theScore)
-  return theScore
+
+  return score(val, left) * score(val, up) * score(val, right)* score(val, down)\
 
 def visScore(grid):
   columns = [list(i) for i in zip(*grid)]
@@ -98,12 +89,12 @@ def visScore(grid):
   for i in range(1, len(grid)-1):
     for j in range(1, len(grid[0])-1):
       toReturn[i][j] = locScore(grid, columns, i, j)
-  print(toReturn)
+
   return toReturn
 
 def partTwoSummary(state):
   visibilityScore = visScore(state['grid'])
-  print(max([ max(row) ] for row in visibilityScore))
+  print(max([ max(row) ] for row in visibilityScore)) # why is this outter max returning an list, don't care
   return max([ max(row) ] for row in visibilityScore)[0]
 
 eight = GenericProc('days/day8input.txt', state, lineLambda, partOneSummary, testInput, 21)
