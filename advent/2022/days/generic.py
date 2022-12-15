@@ -51,6 +51,6 @@ class GenericProc():
     return state
 
   def run(self):
-    with open(self.inputFileName,'r') as f:
+    with open('days/inputs/'+self.inputFileName,'r') as f:
       state = self.fileRun(f)
       return self.summaryLambda(state)    

@@ -152,11 +152,11 @@ def partTwoSummary(state):
   # 0 vs 1 indexing and index before insert is below value where it ends up, so plus two 
   return (sixControlIndex +2) * (twoControlIndex +2)
   
-thirteen = GenericProc('days/day13input.txt', state, lineLambda, partOneSummary, testInput, 13)
+thirteen = GenericProc('day13input.txt', state, lineLambda, partOneSummary, testInput, 13)
 thirteen.test()
 print(thirteen.run())
 
-thirteenTwo = GenericProc('days/day13input.txt', state, lineLambda, partTwoSummary, testInput, 140)
+thirteenTwo = GenericProc('day13input.txt', state, lineLambda, partTwoSummary, testInput, 140)
 thirteenTwo.test()
 print(thirteenTwo.run())
 

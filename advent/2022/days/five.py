@@ -68,10 +68,10 @@ move 2 from 2 to 1
 move 1 from 1 to 2'''
 
 
-five = GenericProc('days/day5input.txt', state, lineProc, summaryLambda, sampleInput, 'CMZ')
+five = GenericProc('day5input.txt', state, lineProc, summaryLambda, sampleInput, 'CMZ')
 five.test()
 print(five.run())
 
-five = GenericProc('days/day5input.txt', state, lineProc, summaryLambdaPartTwo, sampleInput, 'MCD')
+five = GenericProc('day5input.txt', state, lineProc, summaryLambdaPartTwo, sampleInput, 'MCD')
 five.test()
 print(five.run())

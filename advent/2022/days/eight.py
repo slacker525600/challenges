@@ -97,10 +97,10 @@ def partTwoSummary(state):
   print(max([ max(row) ] for row in visibilityScore)) # why is this outter max returning an list, don't care
   return max([ max(row) ] for row in visibilityScore)[0]
 
-eight = GenericProc('days/day8input.txt', state, lineLambda, partOneSummary, testInput, 21)
+eight = GenericProc('day8input.txt', state, lineLambda, partOneSummary, testInput, 21)
 eight.test()
 eight.run()
 
-eightTwo = GenericProc('days/day8input.txt', state, lineLambda, partTwoSummary, testInput, 8)
+eightTwo = GenericProc('day8input.txt', state, lineLambda, partTwoSummary, testInput, 8)
 eightTwo.test()
 eightTwo.run()

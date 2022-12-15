@@ -100,10 +100,10 @@ def partTwoSummary(state):
   print(minStep)
   return minStep
   
-twelve = GenericProc('days/day12input.txt', state, lineLambda, partOneSummary, testInput, 31)
+twelve = GenericProc('day12input.txt', state, lineLambda, partOneSummary, testInput, 31)
 twelve.test()
 print(twelve.run())
 
-twelveTwo = GenericProc('days/day12input.txt', state, lineLambda, partTwoSummary, testInput, 29)
+twelveTwo = GenericProc('day12input.txt', state, lineLambda, partTwoSummary, testInput, 29)
 twelveTwo.test()
 print(twelveTwo.run())

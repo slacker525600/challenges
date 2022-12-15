@@ -36,10 +36,10 @@ def partTwoSummary(state):
 
 
 
-six = GenericProc('days/day6input.txt', state, lineLambdaPartOne, partOneSummary, testInput, 7, byChar = True)
+six = GenericProc('day6input.txt', state, lineLambdaPartOne, partOneSummary, testInput, 7, byChar = True)
 six.test()
 six.run()
 
-sixTwo = GenericProc('days/day6input.txt', state, lineLambdaPartOne, partTwoSummary, testInput, 19, byChar = True)
+sixTwo = GenericProc('day6input.txt', state, lineLambdaPartOne, partTwoSummary, testInput, 19, byChar = True)
 sixTwo.test()
 sixTwo.run()

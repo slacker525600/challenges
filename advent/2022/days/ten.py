@@ -199,7 +199,7 @@ def partTwoSummary(state):
     print(line)
   return '\n'.join(state['lineArray'])
   
-ten = GenericProc('days/day10input.txt', state, lineLambda, partOneSummary, testInput, 13140)
+ten = GenericProc('day10input.txt', state, lineLambda, partOneSummary, testInput, 13140)
 ten.test()
 print(ten.run())
 
@@ -210,7 +210,7 @@ testTwoOut = '''##..##..##..##..##..##..##..##..##..##..
 ######......######......######......####
 #######.......#######.......#######.....'''
 
-tenTwo = GenericProc('days/day10input.txt', state, lineLambda, partTwoSummary, testInput, testTwoOut)
+tenTwo = GenericProc('day10input.txt', state, lineLambda, partTwoSummary, testInput, testTwoOut)
 tenTwo.test()
 print(tenTwo.run())
 

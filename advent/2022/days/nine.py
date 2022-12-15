@@ -89,13 +89,13 @@ def partOneSummary(state):
 def partTwoSummary(state):
   return len(state['visitedGridTail10'])
 
-nine = GenericProc('days/day9input.txt', state, lineLambda, partOneSummary, testInput, 13)
+nine = GenericProc('day9input.txt', state, lineLambda, partOneSummary, testInput, 13)
 nine.test()
 print(nine.run())
 
-nineTwo = GenericProc('days/day9input.txt', state, lineLambda, partTwoSummary, testInput, 1)
+nineTwo = GenericProc('day9input.txt', state, lineLambda, partTwoSummary, testInput, 1)
 nineTwo.test()
-nineTwoLarge = GenericProc('days/day9input.txt', state, lineLambda, partTwoSummary, largerTest, 36)
+nineTwoLarge = GenericProc('day9input.txt', state, lineLambda, partTwoSummary, largerTest, 36)
 nineTwoLarge.test()
 print(nineTwo.run())
 

@@ -2,7 +2,7 @@ from days.generic import generic, GenericProc
 from io import StringIO
 from functools import reduce
 
-inputFileName = 'days/day3input.txt'
+inputFileName = 'day3input.txt'
 defaultState = {
   'items': [],
   'group': [],

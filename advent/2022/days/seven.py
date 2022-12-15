@@ -116,10 +116,10 @@ def partTwoSummary(state):
   return minAvailableSize
 
 
-seven = GenericProc('days/day7input.txt', state, lineLambda, partOneSummary, testInput, 95437)
+seven = GenericProc('day7input.txt', state, lineLambda, partOneSummary, testInput, 95437)
 seven.test()
 seven.run()
 
-sevenTwo = GenericProc('days/day7input.txt', state, lineLambda, partTwoSummary, testInput, 24933642)
+sevenTwo = GenericProc('day7input.txt', state, lineLambda, partTwoSummary, testInput, 24933642)
 sevenTwo.test()
 sevenTwo.run()

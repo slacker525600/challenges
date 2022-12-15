@@ -1,6 +1,6 @@
 from days.generic import GenericProc
 
-inputFileName = 'days/day4input.txt'
+inputFileName = 'day4input.txt'
 
 testInput = '''2-4,6-8
 2-3,4-5

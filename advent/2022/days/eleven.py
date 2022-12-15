@@ -120,11 +120,11 @@ def partTwoSummary(state):
   print(state['monkeys'][0].inspectCount, state['monkeys'][1].inspectCount)
   return state['monkeys'][0].inspectCount * state['monkeys'][1].inspectCount
   
-# eleven = GenericProc('days/day11input.txt', state, lineLambda, partOneSummary, testInput, 10605)
+# eleven = GenericProc('day11input.txt', state, lineLambda, partOneSummary, testInput, 10605)
 # eleven.test()
 # print(eleven.run())
 
-elevenTwo = GenericProc('days/day11input.txt', state, lineLambda, partTwoSummary, testInput, 2713310158)
+elevenTwo = GenericProc('day11input.txt', state, lineLambda, partTwoSummary, testInput, 2713310158)
 elevenTwo.test()
 print(elevenTwo.run())
 
